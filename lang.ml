@@ -101,6 +101,24 @@ let rec level : exp -> int
   | CONCAT (e1,e2)
   | OR (e1,e2) -> max (level e1) (level e2) + 1
 
+let rec get_length e = 
+  match e with
+  | ALPHA _ -> 1
+  | CONCAT (e1,e2) 
+  | OR (e1,e2) -> (get_length e1) + (get_length e2)
+  | CLOSURE e -> get_length e + 1
+  | OZ e -> get_length e + 1
+  | HOLE _ -> 1
+
+let rec get_depth e = 
+  match e with
+  | ALPHA _ -> 1
+  | CONCAT (e1,e2) 
+  | OR (e1,e2) -> max (get_depth e1) (get_depth e2)
+  | CLOSURE e -> get_depth e + 1
+  | OZ e -> get_depth e + 1
+  | HOLE _ -> 1
+
 let cost : exp -> int
 =fun e ->
   let rec cost e = 
@@ -113,14 +131,6 @@ let cost : exp -> int
     | CLOSURE e -> cost e + 20 (*20*)
     | OZ e -> cost e + 20 (*20*)
     | HOLE _ -> 100 (*100*) in
-  let rec get_depth e = 
-    match e with
-    | ALPHA _ -> 1
-    | CONCAT (e1,e2) 
-    | OR (e1,e2) -> max (get_depth e1) (get_depth e2)
-    | CLOSURE e -> get_depth e + 1
-    | OZ e -> get_depth e + 1
-    | HOLE _ -> 1 in
     cost e + int_of_float (float_of_int 10 ** float_of_int (get_depth e - 2))
 
 let rec opt : exp -> exp 

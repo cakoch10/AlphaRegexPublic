@@ -3,6 +3,7 @@ type mode =
   | IDIOM
 
 let mode = ref DEFAULT
+let curr_depth = ref 0
 
 (* fixpoint operator *)
 let rec fix f x = 

@@ -198,6 +198,17 @@ module Worklist = struct
   =fun (_,set,_) -> BatSet.cardinal set
 end
 
+(* [print_exp e] prints the string representation of [e] if depth of [e] is > [curr_depth] *)
+let print_exp : exp -> unit
+=fun e ->
+  let cd = get_length e in
+  if cd > !curr_depth 
+  then begin
+    let _ = curr_depth := cd in
+    print_endline ("Testing expression: "^ exp2str_mod_hole e)
+  end
+
+  
 let rec work : example list -> example list -> Worklist.t -> exp option
 =fun pos_examples neg_examples worklist ->
   iter := !iter + 1;
@@ -214,6 +225,7 @@ let rec work : example list -> example list -> Worklist.t -> exp option
   (* when e is a closed expression *)
   | Some ((e, None),worklist) ->
     let e = normalize e in 
+    print_exp e;
     if !verbose >= 1 then print_endline ("Pick a closed expression: " ^ exp2str e);
     if consistent e pos_examples neg_examples 
     then
@@ -223,6 +235,7 @@ let rec work : example list -> example list -> Worklist.t -> exp option
          
   (* when e is an expression with hole f *)
   | Some ((e, Some f),worklist) -> (* (work, t type) *)
+    print_exp e;
     if !verbose >= 2 then print_endline (" search: " ^ 
             exp2str_w_outset e ^ " level: " ^string_of_int (level e));
     let b_hopeless = hopeless run e pos_examples neg_examples in
