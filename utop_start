@@ -1,0 +1,8 @@
+#directory "_build";;
+#require "batteries";;
+#load "vocab.cmo";;
+#load "options.cmo";;
+#load "profiler.cmo";;
+#load "lang.cmo";;
+#load "hopeless.cmo";;
+#load "synthesizer.cmo";;

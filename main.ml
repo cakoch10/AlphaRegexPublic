@@ -12,11 +12,11 @@ let onestep_xto01 : string -> string list
   then [str]
   else
     let idx = String.index str 'X' in
-    let str1 = str in
-    let str2 = Bytes.copy str in
+    let str1 = Bytes.of_string str in
+    let str2 = Bytes.copy str1 in
     let _ = Bytes.set str1 idx '0' in
     let _ = Bytes.set str2 idx '1' in
-    [str1]@[str2]
+    [Bytes.to_string str1]@[Bytes.to_string str2]
 
 (* onestep for all strings *)
 let onestep_strlst : string list -> string list 
@@ -34,10 +34,14 @@ let read_examples : string -> (str list*str list) option
     else lines in
     (* find the position of positive examples *)
     let (p_pos,_) = List.fold_left (fun (pos,idx) l ->
-                        if BatString.get l 0 = '+' then (idx,idx+1) else (pos,idx+1)) (0,0) lines in
+      if l <> "" && BatString.get l 0 = '+' then (idx,idx+1) 
+      else (pos,idx+1)
+    ) (0,0) lines in
     (* find the position of negative examples *)
     let (n_pos,idx) = List.fold_left (fun (pos,idx) l -> 
-                        if BatString.get l 0 = '-' then (idx,idx+1) else (pos,idx+1)) (0,0) lines in
+      if l <> "" && BatString.get l 0 = '-' then (idx,idx+1) 
+      else (pos,idx+1)
+    ) (0,0) lines in
     let pos_examples = list_get lines (p_pos+1) (n_pos-1) in
     let neg_examples = list_get lines (n_pos+1) (List.length lines - 1) in
     let conflicting = List.exists (fun p -> List.mem p neg_examples) pos_examples in

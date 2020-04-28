@@ -81,11 +81,11 @@ let exp2str_w_outset : exp -> string
 let rec exp2str_e : exp -> string
 =fun exp ->
   match exp with
-  | ALPHA a -> "\(" ^ alpha2char a ^ "\)"
-  | OR (e1,e2) -> "\("^exp2str_e e1 ^ "\|" ^ exp2str_e e2^"\)"
-  | CONCAT (e1,e2) -> "\("^exp2str_e e1 ^ "" ^ exp2str_e e2^"\)"
-  | CLOSURE e -> "\("^exp2str_e e^"*\)"
-  | OZ e -> "\("^exp2str_e e^"?\)"
+  | ALPHA a -> "\\(" ^ alpha2char a ^ "\\)"
+  | OR (e1,e2) -> "\\("^exp2str_e e1 ^ "\\|" ^ exp2str_e e2^"\\)"
+  | CONCAT (e1,e2) -> "\\("^exp2str_e e1 ^ "" ^ exp2str_e e2^"\\)"
+  | CLOSURE e -> "\\("^exp2str_e e^"*\\)"
+  | OZ e -> "\\("^exp2str_e e^"?\\)"
   | HOLE n -> "H"^string_of_int n
 
 let pp : exp -> unit

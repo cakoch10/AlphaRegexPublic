@@ -20,7 +20,7 @@ let rec run : exp -> example -> bool
 =fun exp example ->
   let _ = Profiler.start_event "Run" in
   let b = 
-    let regexp = Str.regexp (exp2str_e exp ^ "\.") in
+    let regexp = Str.regexp (exp2str_e exp ^ "\\.") in
     let str = str2str example ^ "." in
       Str.string_match regexp str 0 in
   let _ = Profiler.finish_event "Run" in
