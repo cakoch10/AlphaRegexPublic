@@ -1,0 +1,18 @@
+w  even 0 and even 1, target exp (aa|bb|(ab|ba)(aa|bb)*(ab|ba))*
+++
+00
+11
+1001
+1010
+1100
+0110
+0101
+0011
+--
+X
+XXX
+1110
+1000
+0001
+0111
+XXXXX

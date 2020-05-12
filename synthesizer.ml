@@ -2,6 +2,7 @@ open Options
 open Lang
 open Vocab
 open Hopeless
+open Worklist
 
 (*************************************)
 (* examples and consistency checking *)
@@ -103,101 +104,6 @@ let init () =
     (hole, Some hole)
 
 
-(*************************************)
-(*             Worklist              *)
-(*************************************)
-type work = exp * (exp option)
-
-module Worklist = struct
-  module OrderedType = struct
-    type t = work
-    let compare (e1,_)  (e2,_) = 
-      let c1,c2 = cost e1,cost e2 in
-      if c1 = c2 then 0
-      else if c1 < c2 then -1
-      else 1
-  end
-
-  module Heap = BatHeap.Make (OrderedType)
-
-  (* Heap.t = work type = (hypothesis, free variable) *)
-  type t = Heap.t * exp BatSet.t * string BatSet.t
-  let empty = (Heap.empty, BatSet.empty, BatSet.empty)
- 
-  let print_set : t -> unit
-  =fun (_,set,_) ->
-    begin
-      print_string " Processed forms : ";
-      BatSet.iter (fun e -> print_endline (exp2str e ^ " ")) set;
-      print_endline ""
-    end
-
-  let print_sset : t -> unit
-  =fun (_,_,sset) ->
-    begin
-      print_string " Processed forms : ";
-      BatSet.iter (fun e -> print_string (e ^ " ")) sset;
-      print_endline ""
-    end
-
-  let explored : exp -> t -> bool
-  =fun exp ((_,set,sset)) -> 
-    let _ = Profiler.start_event "Worklist.explored" in
-    let b1 = BatSet.mem (exp2str_mod_hole exp) sset in
-(*    let b2 = BatSet.exists (eq_mod_hole exp) set in *)
-    let _ = Profiler.finish_event "Worklist.explored" in
-(*    (try 
-    assert (b1 = b2)
-    with _ -> print_endline (exp2str exp ^ " " ^ string_of_bool b1 ^ " " ^ string_of_bool b2); 
-     print_set t;
-     print_sset t;
-    exit 0); *)
-    b1
-
-  let add : (exp -> int) -> work -> t -> t
-  =fun cost (h,f) (lst,set,sset) ->
-    let _ = Profiler.start_event "Worklist.add.exists" in
-    let b_exist = explored h (lst,set,sset) in  
-    let _ = Profiler.finish_event "Worklist.add.exists" in
-    let res = 
-      if b_exist then (lst,set,sset)
-      else  
-        let _ = Profiler.start_event "Worklist.add.insert" in
-        let lst = Heap.add (h,f) lst in
-        let _ = Profiler.finish_event "Worklist.add.insert" in
-          (lst, BatSet.add h set, BatSet.add (exp2str_mod_hole h) sset) in
-      res
-
-  (* Worklist.choose *)    
-  let choose : t -> (work * t) option
-  =fun (lst,set,sset) ->
-    try
-    let h = Heap.find_min lst in
-      Some (h, (Heap.del_min lst, set, sset))
-    with _ -> None
-
-  let print : t -> unit
-  =fun (lst,set,_) -> ()
-(*    print_endline "\n\n================ Worklist =================";
-    List.iter (fun x -> 
-      match x with
-      | (e, Some f) -> print_endline (exp2str e ^ ", " ^ exp2str f) 
-      | (e, None) -> print_endline (exp2str e ^ ", None")) lst;
-    print_endline "===============================================\n\n"; flush stdout
-*)
-  let string_of_size : t -> string
-  =fun (lst,set,sset) ->
-    " " ^ string_of_int (Heap.size lst) ^ 
-    " " ^ string_of_int (BatSet.cardinal set) ^ 
-    " " ^ string_of_int (BatSet.cardinal sset)
-
-  let size_of_list : t -> int
-  =fun (lst,_,_) -> Heap.size lst
-
-  let size_of_set : t -> int
-  =fun (_,set,_) -> BatSet.cardinal set
-end
-
 (* [print_exp e] prints the string representation of [e] if depth of [e] is > [curr_depth] *)
 let print_exp : exp -> unit
 =fun e ->
@@ -220,12 +126,13 @@ let rec work : example list -> example list -> Worklist.t -> exp option
        " Worklist size : " ^ Worklist.string_of_size worklist ^
        " took " ^ string_of_float t ^ "sec" ^ " total: " ^ string_of_float (Sys.time() -. t_total))
   end;
-  match Worklist.choose worklist with (* choose minimal cost node *)
+  let next_exp = if !random = 1 then Worklist.choose_ran worklist else Worklist.choose worklist in
+  match next_exp with (* choose minimal cost node *)
   | None -> None (* failed to discover a solution *)
   (* when e is a closed expression *)
   | Some ((e, None),worklist) ->
     let e = normalize e in 
-    print_exp e;
+    (* print_exp e; *)
     if !verbose >= 1 then print_endline ("Pick a closed expression: " ^ exp2str e);
     if consistent e pos_examples neg_examples 
     then
@@ -235,7 +142,7 @@ let rec work : example list -> example list -> Worklist.t -> exp option
          
   (* when e is an expression with hole f *)
   | Some ((e, Some f),worklist) -> (* (work, t type) *)
-    print_exp e;
+    (* print_exp e; *)
     if !verbose >= 2 then print_endline (" search: " ^ 
             exp2str_w_outset e ^ " level: " ^string_of_int (level e));
     let b_hopeless = hopeless run e pos_examples neg_examples in

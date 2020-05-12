@@ -1,0 +1,10 @@
+w with an 'a' on the 4th position from the right, target expression (a+b)*a(a+b)(a+b)(a+b)
+++
+1110111
+101010
+101111
+--
+01000
+1000
+11111
+
