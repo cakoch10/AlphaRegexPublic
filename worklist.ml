@@ -2,6 +2,11 @@ open Options
 open Lang
 open Vocab
 
+
+module type Cost = sig val cost : exp -> int end
+
+module Make (C:Cost) = struct
+
 (*************************************)
 (*             Worklist              *)
 (*************************************)
@@ -10,14 +15,16 @@ type work = exp * (exp option)
 module OrderedType = struct
   type t = work
   let compare (e1,_)  (e2,_) = 
-    let c = if !cost_fun = 0 then cost
+    (* let c = if !cost_fun = 0 then cost
             else if !cost_fun = 1 then cost_times
-            else cost_star in   
-    let c1,c2 = c e1,c e2 in
+            else cost_star in    *)
+    let c1,c2 = C.cost e1, C.cost e2 in
     if c1 = c2 then 0
     else if c1 < c2 then -1
     else 1
 end
+
+(* module Cost1 = struct let cost e = 0 end *)
 
 module Heap = BatHeap.Make (OrderedType)
 
@@ -117,8 +124,8 @@ let choose_ran : t -> (work * t) option
   with _ -> None
 
 
-let delete : work -> t -> t
-=fun (w, _) (lst, set, sset) ->
+let delete : exp -> t -> t
+=fun w (lst, set, sset) ->
   (* need to search for w and delete it *)
   let heap_lst = Heap.to_list lst in
   let new_lst = List.fold_left (fun l (h,o) -> 
@@ -127,7 +134,7 @@ let delete : work -> t -> t
   (Heap.of_list new_lst, set, sset)
 
 
-let choose_three : t list -> int -> (work * t list) option
+(* let choose_three : t list -> int -> (work * t list) option
 =fun worklist_lst idx ->
   try
   let (lst, set, sset) = List.nth worklist_lst idx in
@@ -140,7 +147,7 @@ let choose_three : t list -> int -> (work * t list) option
                                       else if i = idx2 then heap2
                                       else heap3) in
   Some (elm, new_lst)
-  with _ -> None
+  with _ -> None *)
 
 
 
@@ -164,3 +171,5 @@ let size_of_list : t -> int
 
 let size_of_set : t -> int
 =fun (_,set,_) -> BatSet.cardinal set
+
+end

@@ -113,7 +113,7 @@ let rec get_length e =
 let rec get_depth e = 
   match e with
   | ALPHA _ -> 1
-  | CONCAT (e1,e2) 
+  | CONCAT (e1,e2)
   | OR (e1,e2) -> max (get_depth e1) (get_depth e2)
   | CLOSURE e -> get_depth e + 1
   | OZ e -> get_depth e + 1
@@ -126,7 +126,7 @@ let cost : exp -> int
     | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 2
                                 else cost (ALPHA A) + cost (ALPHA B) + 3
     | ALPHA _ -> 2 (*20*)
-    | OR (e1,e2) -> cost e1 + cost e2 + 3 (*30*)
+    | OR (e1,e2) -> cost e1 + cost e2 + 5 (*30*)
     | CONCAT (e1,e2) -> cost e1 + cost e2 + 1 (*5*)
     | CLOSURE e -> cost e + 1 (*20*)
     | OZ e -> cost e + 5 (*20*)
@@ -155,7 +155,7 @@ let cost_times : exp -> int
                                else cost (ALPHA A) + cost (ALPHA B) + 3
     | ALPHA _ -> 2
     | OR (e1,e2) -> cost e1 + cost e2 + 1
-    | CONCAT (e1,e2) -> cost e1 + cost e2 + 3
+    | CONCAT (e1,e2) -> cost e1 + cost e2 + 5
     | CLOSURE e -> cost e + 1
     | OZ e -> cost e + 5
     | HOLE _ -> 10 in
@@ -170,7 +170,7 @@ let cost_star : exp -> int
     | ALPHA _ -> 2
     | OR (e1,e2) -> cost e1 + cost e2 + 1
     | CONCAT (e1,e2) -> cost e1 + cost e2 + 1
-    | CLOSURE e -> cost e + 3
+    | CLOSURE e -> cost e + 5
     | OZ e -> cost e + 5
     | HOLE _ -> 10 in
     cost e + get_depth e
