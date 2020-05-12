@@ -165,6 +165,65 @@ let rec work : example list -> example list -> Worklist.t -> exp option
               Worklist.add cost (e'', Some f') worklist
       ) worklist (available()))
 
+
+
+(* [work'] is the same as [work] except it maintains three different worklists 
+ * ordered according to three different cost functions and alternates between them *)
+let rec work' : example list -> 
+                example list -> 
+                Worklist.t list -> 
+                int -> 
+                exp option
+=fun pos_examples neg_examples worklist_lst idx ->
+  let idx = (idx + 1) mod 3 in
+  let worklist = List.nth worklist_lst idx in
+  iter := !iter + 1;
+  if !verbose >= 0 && !iter mod 1000 = 0 && not(!Options.simple)
+  then begin
+    let t = Sys.time () -. !t0 in
+    let _ = t0 := Sys.time() in
+    print_endline (string_of_int !iter ^ "." ^
+        " Worklist size : " ^ Worklist.string_of_size worklist ^
+        " took " ^ string_of_float t ^ "sec" ^ " total: " ^ string_of_float (Sys.time() -. t_total))
+  end;  
+  match next_exp with (* choose minimal cost node *)
+  | None -> None (* failed to discover a solution *)
+  (* when e is a closed expression *)
+  | Some ((e, None),worklist) ->
+    let e = normalize e in 
+    (* print_exp e; *)
+    if !verbose >= 1 then print_endline ("Pick a closed expression: " ^ exp2str e);
+    if consistent e pos_examples neg_examples 
+    then
+        Some e (* solution found *)
+    else
+          (work pos_examples neg_examples worklist)     
+          
+  (* when e is an expression with hole f *)
+  | Some ((e, Some f),worklist) -> (* (work, t type) *)
+    (* print_exp e; *)
+    if !verbose >= 2 then print_endline (" search: " ^ 
+            exp2str_w_outset e ^ " level: " ^string_of_int (level e));
+    let b_hopeless = hopeless run e pos_examples neg_examples in
+    if b_hopeless || needless e pos_examples neg_examples
+    then work pos_examples neg_examples worklist
+    else
+      (* making new worklist *)
+      work pos_examples neg_examples (
+        List.fold_left (fun worklist e' -> 
+        (* replace the hole inside e by e' *)
+        let e_subst = subst e e' f in
+        (* e_subst can have holes 
+          because subst change just only one hole *)
+        let e'' = normalize e_subst in
+        let holes = holes e'' in
+            match holes with
+            | [] -> Worklist.add cost (e'', None) worklist
+            | _ ->
+              let f' = List.hd holes in
+              Worklist.add cost (e'', Some f') worklist
+      ) worklist (available()))
+
 let perform : example list -> example list -> pgm option
 =fun pos_examples neg_examples -> 
   let init_worklist = Worklist.add cost (init()) Worklist.empty in

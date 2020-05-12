@@ -123,15 +123,59 @@ let cost : exp -> int
 =fun e ->
   let rec cost e = 
     match e with
-    | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 20
-                               else cost (ALPHA A) + cost (ALPHA B) + 30
-    | ALPHA _ -> 20 (*20*)
-    | OR (e1,e2) -> cost e1 + cost e2 + 30 (*30*)
-    | CONCAT (e1,e2) -> cost e1 + cost e2 + 5 (*5*)
-    | CLOSURE e -> cost e + 20 (*20*)
-    | OZ e -> cost e + 20 (*20*)
-    | HOLE _ -> 100 (*100*) in
-    cost e + int_of_float (float_of_int 10 ** float_of_int (get_depth e - 2))
+    | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 2
+                                else cost (ALPHA A) + cost (ALPHA B) + 3
+    | ALPHA _ -> 2 (*20*)
+    | OR (e1,e2) -> cost e1 + cost e2 + 3 (*30*)
+    | CONCAT (e1,e2) -> cost e1 + cost e2 + 1 (*5*)
+    | CLOSURE e -> cost e + 1 (*20*)
+    | OZ e -> cost e + 5 (*20*)
+    | HOLE _ -> 10 (*100*) in
+  cost e + get_depth e
+(* + int_of_float (float_of_int 10 ** float_of_int (get_depth e - 2))
+let cost : exp -> int
+=fun e ->
+  let rec cost e = 
+    match e with
+    | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 1
+                               else cost (ALPHA A) + cost (ALPHA B) + 2
+    | ALPHA _ -> 1
+    | OR (e1,e2) -> cost e1 + cost e2 + 3
+    | CONCAT (e1,e2) -> cost e1 + cost e2 + 1
+    | CLOSURE e -> cost e + 1
+    | OZ e -> cost e + 1
+    | HOLE _ -> 10 in
+    cost e
+*)
+let cost_times : exp -> int
+=fun e ->
+  let rec cost e = 
+    match e with
+    | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 2
+                               else cost (ALPHA A) + cost (ALPHA B) + 3
+    | ALPHA _ -> 2
+    | OR (e1,e2) -> cost e1 + cost e2 + 1
+    | CONCAT (e1,e2) -> cost e1 + cost e2 + 3
+    | CLOSURE e -> cost e + 1
+    | OZ e -> cost e + 5
+    | HOLE _ -> 10 in
+    cost e + get_depth e
+
+let cost_star : exp -> int
+=fun e ->
+  let rec cost e = 
+    match e with
+    | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 2
+                                else cost (ALPHA A) + cost (ALPHA B) + 3
+    | ALPHA _ -> 2
+    | OR (e1,e2) -> cost e1 + cost e2 + 1
+    | CONCAT (e1,e2) -> cost e1 + cost e2 + 1
+    | CLOSURE e -> cost e + 3
+    | OZ e -> cost e + 5
+    | HOLE _ -> 10 in
+    cost e + get_depth e
+    
+
 
 let rec opt : exp -> exp 
 =fun e ->

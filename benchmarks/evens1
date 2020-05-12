@@ -9,10 +9,10 @@ w  even 0 and even 1, target exp (aa|bb|(ab|ba)(aa|bb)*(ab|ba))*
 0011
 --
 X
-01 
-10 
+01
+10
 XXX
-0111 
+0111
 1011
 1101
 1110

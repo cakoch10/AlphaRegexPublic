@@ -1,3 +1,4 @@
+open Options
 open Lang
 open Vocab
 
@@ -9,7 +10,10 @@ type work = exp * (exp option)
 module OrderedType = struct
   type t = work
   let compare (e1,_)  (e2,_) = 
-    let c1,c2 = cost e1,cost e2 in
+    let c = if !cost_fun = 0 then cost
+            else if !cost_fun = 1 then cost_times
+            else cost_star in   
+    let c1,c2 = c e1,c e2 in
     if c1 = c2 then 0
     else if c1 < c2 then -1
     else 1
@@ -91,6 +95,30 @@ let choose_ran : t -> (work * t) option
   let (elm, heap_lst) = random_elm (Heap.to_list lst) in 
     Some (elm, (Heap.of_list (heap_lst), set, sset))
   with _ -> None
+
+
+let delete work -> t -> t
+=fun w (lst, set, sset) ->
+  
+
+
+(* use eq_mod_hole for checking equivalence *)
+
+let choose_three : t list -> int -> (work * t list) option
+=fun worklist_lst idx ->
+  try
+  let (lst, set, sset) = List.nth worklist_lst idx
+  let elm = Heap.find_min lst in
+  let idx2 = (idx+1) mod 3 in
+  let idx3 = (idx+2) mod 3 in
+  let heap2 = delete elm (List.nth worklist_lst idx2) in
+  let heap3 = delete elm (List.nth worklist_lst idx3) in
+  let new_lst = List.init 3 (fun i -> if i = idx then (Heap.del_min lst, set, sset)
+                                      else if i = idx2 then heap2
+                                      else heap3) in
+  Some (elm, new_lst)
+  with _ -> None
+
 
 
 let print : t -> unit
