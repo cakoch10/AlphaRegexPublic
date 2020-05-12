@@ -84,10 +84,10 @@ let add_three : work -> t list -> t list
     let lst0 = Heap.add (h,f) lst0 in
     let lst1 = Heap.add (h,f) lst1 in
     let lst2 = Heap.add (h,f) lst2 in
-    let new_set = BatSet.add h set in
-    let new_sset = BatSet.add (exp2str_mod_hole h) sset in
+    let new_set = BatSet.add h set0 in
+    let new_sset = BatSet.add (exp2str_mod_hole h) sset0 in
     let _ = Profiler.finish_event "Worklist.add.insert" in
-      [(lst0, new_set, new_sset);(lst1, new_set, new_sset);(lst1, new_set, new_sset)]
+      [(lst0, new_set, new_sset);(lst1, new_set, new_sset);(lst2, new_set, new_sset)]
 
 (* Worklist.choose *)    
 let choose : t -> (work * t) option
@@ -117,7 +117,7 @@ let choose_ran : t -> (work * t) option
   with _ -> None
 
 
-let delete work -> t -> t
+let delete : work -> t -> t
 =fun (w, _) (lst, set, sset) ->
   (* need to search for w and delete it *)
   let heap_lst = Heap.to_list lst in
@@ -130,7 +130,7 @@ let delete work -> t -> t
 let choose_three : t list -> int -> (work * t list) option
 =fun worklist_lst idx ->
   try
-  let (lst, set, sset) = List.nth worklist_lst idx
+  let (lst, set, sset) = List.nth worklist_lst idx in
   let elm = Heap.find_min lst in
   let idx2 = (idx+1) mod 3 in
   let idx3 = (idx+2) mod 3 in

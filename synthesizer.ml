@@ -209,7 +209,7 @@ let rec work' : example list ->
     then work' pos_examples neg_examples worklist_lst idx
     else
       (* making new worklist *)
-      work pos_examples neg_examples (
+      work' pos_examples neg_examples (
         List.fold_left (fun w_lst e' -> 
           (* replace the hole inside e by e' *)
           let e_subst = subst e e' f in
