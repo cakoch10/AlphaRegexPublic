@@ -4,6 +4,7 @@ let profile = ref false
 let simple = ref false
 let random = ref 0
 let cost_fun = ref 0
+let extra_heaps = ref 0
 
 let options = 
   [
@@ -12,5 +13,6 @@ let options =
     ("-profile", (Arg.Set profile), "profiling");
     ("-simple", (Arg.Set simple), "simple");
     ("-random", (Arg.Int (fun n -> random := n)), "how to select off worklist: 1 for random 0 else");
-    ("-cost", (Arg.Int (fun n -> cost_fun := n)), "which cost function to use: 0, 1, 2")
+    ("-cost", (Arg.Int (fun n -> cost_fun := n)), "which cost function to use: 0, 1, 2");
+    ("-heaps", (Arg.Int (fun n -> extra_heaps := n)), "indicates whether to use extra heaps")
   ]

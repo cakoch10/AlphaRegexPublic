@@ -69,6 +69,26 @@ let add : (exp -> int) -> work -> t -> t
         (lst, BatSet.add h set, BatSet.add (exp2str_mod_hole h) sset) in
     res
 
+
+let add_three : work -> t list -> t list
+=fun (h,f) w_lst ->
+  let _ = Profiler.start_event "Worklist.add.exists" in
+  let b_exist = explored h (List.hd w_lst) in  
+  let _ = Profiler.finish_event "Worklist.add.exists" in
+  if b_exist then w_lst
+  else  
+    let _ = Profiler.start_event "Worklist.add.insert" in
+    let (lst0,set0,sset0) = List.nth w_lst 0 in
+    let (lst1,set1,sset1) = List.nth w_lst 1 in
+    let (lst2,set2,sset2) = List.nth w_lst 2 in
+    let lst0 = Heap.add (h,f) lst0 in
+    let lst1 = Heap.add (h,f) lst1 in
+    let lst2 = Heap.add (h,f) lst2 in
+    let new_set = BatSet.add h set in
+    let new_sset = BatSet.add (exp2str_mod_hole h) sset in
+    let _ = Profiler.finish_event "Worklist.add.insert" in
+      [(lst0, new_set, new_sset);(lst1, new_set, new_sset);(lst1, new_set, new_sset)]
+
 (* Worklist.choose *)    
 let choose : t -> (work * t) option
 =fun (lst,set,sset) ->
@@ -98,11 +118,14 @@ let choose_ran : t -> (work * t) option
 
 
 let delete work -> t -> t
-=fun w (lst, set, sset) ->
-  
+=fun (w, _) (lst, set, sset) ->
+  (* need to search for w and delete it *)
+  let heap_lst = Heap.to_list lst in
+  let new_lst = List.fold_left (fun l (h,o) -> 
+    if (eq_mod_hole w h) then l else (h,o)::l
+  ) [] heap_lst in
+  (Heap.of_list new_lst, set, sset)
 
-
-(* use eq_mod_hole for checking equivalence *)
 
 let choose_three : t list -> int -> (work * t list) option
 =fun worklist_lst idx ->
