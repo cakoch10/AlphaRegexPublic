@@ -1,0 +1,5 @@
+#!/bin/bash
+for file in ./benchmarks/no*
+do
+	./main.native -input $file  > ./experiment_results/$(basename $file).results 
+done

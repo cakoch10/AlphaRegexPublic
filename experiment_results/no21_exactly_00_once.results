@@ -1,0 +1,43 @@
+============  INPUT  =============
+- Positive Examples:
+00
+1001
+010010
+1011001110
+- Negative Examples:
+01
+11
+000
+00100
+==========  PROCESSING  ==========
+1000. Worklist size :  686 1685 1685 took 0.041594sec total: 0.041595
+2000. Worklist size :  1382 3381 3381 took 0.042252sec total: 0.08385
+3000. Worklist size :  2002 5001 5001 took 0.049638sec total: 0.133489
+4000. Worklist size :  2695 6694 6694 took 0.05287sec total: 0.186364
+5000. Worklist size :  3405 8404 8404 took 0.052827sec total: 0.239192
+6000. Worklist size :  4036 10035 10035 took 0.04907sec total: 0.288266
+7000. Worklist size :  4657 11656 11656 took 0.049291sec total: 0.337559
+8000. Worklist size :  5337 13336 13336 took 0.05652sec total: 0.394083
+9000. Worklist size :  6099 15098 15098 took 0.055263sec total: 0.449348
+10000. Worklist size :  6784 16783 16783 took 0.068532sec total: 0.517884
+11000. Worklist size :  7411 18410 18410 took 0.058534sec total: 0.576421
+12000. Worklist size :  8000 19999 19999 took 0.055738sec total: 0.632162
+13000. Worklist size :  8565 21564 21564 took 0.059466sec total: 0.69163
+14000. Worklist size :  9085 23084 23084 took 0.059945sec total: 0.751578
+15000. Worklist size :  9665 24664 24664 took 0.062394sec total: 0.813975
+16000. Worklist size :  10239 26238 26238 took 0.056788sec total: 0.870765
+============  OUTPUT  ============
+((0+1)1*0(01)?)*
+Level: 7
+ - ((0+1)1*0(01)?)*  00 : accept
+ - ((0+1)1*0(01)?)*  1001 : accept
+ - ((0+1)1*0(01)?)*  010010 : accept
+ - ((0+1)1*0(01)?)*  1011001110 : accept
+ - ((0+1)1*0(01)?)*  01 : reject
+ - ((0+1)1*0(01)?)*  11 : reject
+ - ((0+1)1*0(01)?)*  000 : reject
+ - ((0+1)1*0(01)?)*  00100 : reject
+============  REPORT  =============
+Iter : 16477
+Time : 0.90075 seconds
+

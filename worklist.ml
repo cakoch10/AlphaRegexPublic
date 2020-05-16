@@ -133,6 +133,12 @@ let delete : exp -> t -> t
   ) [] heap_lst in
   (Heap.of_list new_lst, set, sset)
 
+let halve : t -> t
+=fun (lst, set, sset) ->
+  let heap_lst = Heap.to_list lst in
+  let n = (List.length heap_lst) / 2 in 
+  let new_lst = List.init n (fun i -> List.nth heap_lst i) in
+  (Heap.of_list new_lst, set, sset)
 
 (* let choose_three : t list -> int -> (work * t list) option
 =fun worklist_lst idx ->

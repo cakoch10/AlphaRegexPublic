@@ -125,13 +125,13 @@ let cost : exp -> int
     match e with
     | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 2
                                 else cost (ALPHA A) + cost (ALPHA B) + 3
-    | ALPHA _ -> 2 (*20*)
-    | OR (e1,e2) -> cost e1 + cost e2 + 5 (*30*)
-    | CONCAT (e1,e2) -> cost e1 + cost e2 + 1 (*5*)
-    | CLOSURE e -> cost e + 1 (*20*)
-    | OZ e -> cost e + 5 (*20*)
-    | HOLE _ -> 10 (*100*) in
-  cost e + get_depth e
+    | ALPHA _ -> 20 (*20*)
+    | OR (e1,e2) -> cost e1 + cost e2 + 30 (*30*)
+    | CONCAT (e1,e2) -> cost e1 + cost e2 + 5 (*5*)
+    | CLOSURE e -> cost e + 20 (*20*)
+    | OZ e -> cost e + 20 (*20*)
+    | HOLE _ -> 100 (*100*) in
+  cost e
 (* + int_of_float (float_of_int 10 ** float_of_int (get_depth e - 2))
 let cost : exp -> int
 =fun e ->

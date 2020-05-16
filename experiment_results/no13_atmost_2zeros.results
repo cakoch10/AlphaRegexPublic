@@ -1,0 +1,62 @@
+============  INPUT  =============
+- Positive Examples:
+0
+1
+00
+11
+10101
+11011011
+111
+1111
+- Negative Examples:
+000
+11011010
+11000
+00011
+11010101
+0000
+101010101
+==========  PROCESSING  ==========
+1000. Worklist size :  825 1824 1824 took 0.08884sec total: 0.088844
+2000. Worklist size :  1676 3675 3675 took 0.122305sec total: 0.211154
+3000. Worklist size :  2546 5545 5545 took 0.092749sec total: 0.303907
+4000. Worklist size :  3328 7327 7327 took 0.11577sec total: 0.419679
+5000. Worklist size :  4157 9156 9156 took 0.13035sec total: 0.550036
+6000. Worklist size :  4856 10855 10855 took 0.10572sec total: 0.655759
+7000. Worklist size :  5595 12594 12594 took 0.106182sec total: 0.761945
+8000. Worklist size :  6377 14376 14376 took 0.102809sec total: 0.864757
+9000. Worklist size :  7177 16176 16176 took 0.107711sec total: 0.972471
+10000. Worklist size :  7994 17993 17993 took 0.095454sec total: 1.067928
+11000. Worklist size :  8892 19891 19891 took 0.091537sec total: 1.159469
+12000. Worklist size :  9805 21804 21804 took 0.092773sec total: 1.252244
+13000. Worklist size :  10559 23558 23558 took 0.084471sec total: 1.336718
+14000. Worklist size :  11280 25279 25279 took 0.080552sec total: 1.417272
+15000. Worklist size :  12014 27013 27013 took 0.089115sec total: 1.506391
+16000. Worklist size :  12843 28842 28842 took 0.085772sec total: 1.592168
+17000. Worklist size :  13635 30634 30634 took 0.098652sec total: 1.690823
+18000. Worklist size :  14495 32494 32494 took 0.089058sec total: 1.779884
+19000. Worklist size :  15336 34335 34335 took 0.0937sec total: 1.873589
+20000. Worklist size :  16086 36085 36085 took 0.104652sec total: 1.978244
+21000. Worklist size :  16791 37790 37790 took 0.106946sec total: 2.085191
+============  OUTPUT  ============
+1*(0?1*01*)?
+Level: 7
+ - 1*(0?1*01*)?  0 : accept
+ - 1*(0?1*01*)?  1 : accept
+ - 1*(0?1*01*)?  00 : accept
+ - 1*(0?1*01*)?  11 : accept
+ - 1*(0?1*01*)?  10101 : accept
+ - 1*(0?1*01*)?  11011011 : accept
+ - 1*(0?1*01*)?  111 : accept
+ - 1*(0?1*01*)?  1111 : accept
+ - 1*(0?1*01*)?  000 : reject
+ - 1*(0?1*01*)?  11011010 : reject
+ - 1*(0?1*01*)?  11000 : reject
+ - 1*(0?1*01*)?  00011 : reject
+ - 1*(0?1*01*)?  11010101 : reject
+ - 1*(0?1*01*)?  0000 : reject
+ - 1*(0?1*01*)?  101010101 : reject
+============  REPORT  =============
+Iter : 21432
+Time : 2.130663 seconds
+
