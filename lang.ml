@@ -119,12 +119,12 @@ let rec get_depth e =
   | OZ e -> get_depth e + 1
   | HOLE _ -> 1
 
-let cost : exp -> int
+let cost_old : exp -> int
 =fun e ->
   let rec cost e = 
     match e with
-    | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 2
-                                else cost (ALPHA A) + cost (ALPHA B) + 3
+    | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 20
+                                else cost (ALPHA A) + cost (ALPHA B) + 30
     | ALPHA _ -> 20 (*20*)
     | OR (e1,e2) -> cost e1 + cost e2 + 30 (*30*)
     | CONCAT (e1,e2) -> cost e1 + cost e2 + 5 (*5*)
@@ -147,19 +147,22 @@ let cost : exp -> int
     | HOLE _ -> 10 in
     cost e
 *)
-let cost_times : exp -> int
+
+let cost_times e = 0
+
+let cost : exp -> int
 =fun e ->
   let rec cost e = 
     match e with
-    | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 2
-                               else cost (ALPHA A) + cost (ALPHA B) + 3
-    | ALPHA _ -> 2
-    | OR (e1,e2) -> cost e1 + cost e2 + 1
-    | CONCAT (e1,e2) -> cost e1 + cost e2 + 5
-    | CLOSURE e -> cost e + 1
-    | OZ e -> cost e + 5
-    | HOLE _ -> 10 in
-    cost e + get_depth e
+    | OR (ALPHA A, ALPHA B) -> if !mode = IDIOM then 20
+                               else cost (ALPHA A) + cost (ALPHA B) + 30
+    | ALPHA _ -> 20
+    | OR (e1,e2) -> cost e1 + cost e2 + 20
+    | CONCAT (e1,e2) -> cost e1 + cost e2 + 20
+    | CLOSURE e -> cost e + 30
+    | OZ e -> cost e + 20
+    | HOLE _ -> 100 in
+    cost e
 
 let cost_star : exp -> int
 =fun e ->

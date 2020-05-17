@@ -1,0 +1,49 @@
+============  INPUT  =============
+- Positive Examples:
+000
+00011
+0001111
+000011
+00001111
+00000111111
+- Negative Examples:
+0
+00
+0001
+00001
+0000111
+==========  PROCESSING  ==========
+1000. Worklist size :  689 1688 1688 took 0.067497sec total: 0.067498
+2000. Worklist size :  1361 3360 3360 took 0.064895sec total: 0.132395
+3000. Worklist size :  1993 4992 4992 took 0.061847sec total: 0.194245
+4000. Worklist size :  2646 6645 6645 took 0.064565sec total: 0.258812
+5000. Worklist size :  3353 8352 8352 took 0.066925sec total: 0.32574
+6000. Worklist size :  4078 10077 10077 took 0.083283sec total: 0.409026
+7000. Worklist size :  4701 11700 11700 took 0.069907sec total: 0.478936
+8000. Worklist size :  5332 13331 13331 took 0.065546sec total: 0.544486
+9000. Worklist size :  6023 15022 15022 took 0.071595sec total: 0.616083
+10000. Worklist size :  6719 16718 16718 took 0.071296sec total: 0.687382
+11000. Worklist size :  7437 18436 18436 took 0.084217sec total: 0.771603
+12000. Worklist size :  8116 20115 20115 took 0.075951sec total: 0.847557
+13000. Worklist size :  8814 21813 21813 took 0.08838sec total: 0.93594
+14000. Worklist size :  9524 23523 23523 took 0.091634sec total: 1.027578
+15000. Worklist size :  10138 25137 25137 took 0.096802sec total: 1.124382
+16000. Worklist size :  10851 26850 26850 took 0.077002sec total: 1.201387
+============  OUTPUT  ============
+000(0+11)*
+Level: 6
+ - 000(0+11)*  000 : accept
+ - 000(0+11)*  00011 : accept
+ - 000(0+11)*  0001111 : accept
+ - 000(0+11)*  000011 : accept
+ - 000(0+11)*  00001111 : accept
+ - 000(0+11)*  00000111111 : accept
+ - 000(0+11)*  0 : reject
+ - 000(0+11)*  00 : reject
+ - 000(0+11)*  0001 : reject
+ - 000(0+11)*  00001 : reject
+ - 000(0+11)*  0000111 : reject
+============  REPORT  =============
+Iter : 16709
+Time : 1.260296 seconds
+

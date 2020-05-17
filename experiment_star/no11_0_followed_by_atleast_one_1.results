@@ -1,0 +1,37 @@
+============  INPUT  =============
+- Positive Examples:
+1
+111
+01
+101
+011
+0101
+01101
+- Negative Examples:
+0
+001
+10
+1010
+01010
+011010
+==========  PROCESSING  ==========
+============  OUTPUT  ============
+(0?1)*
+Level: 4
+ - (0?1)*  1 : accept
+ - (0?1)*  111 : accept
+ - (0?1)*  01 : accept
+ - (0?1)*  101 : accept
+ - (0?1)*  011 : accept
+ - (0?1)*  0101 : accept
+ - (0?1)*  01101 : accept
+ - (0?1)*  0 : reject
+ - (0?1)*  001 : reject
+ - (0?1)*  10 : reject
+ - (0?1)*  1010 : reject
+ - (0?1)*  01010 : reject
+ - (0?1)*  011010 : reject
+============  REPORT  =============
+Iter : 80
+Time : 0.005032 seconds
+
