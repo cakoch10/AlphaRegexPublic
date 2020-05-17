@@ -158,8 +158,8 @@ let cost : exp -> int
                                else cost (ALPHA A) + cost (ALPHA B) + 30
     | ALPHA _ -> 20
     | OR (e1,e2) -> cost e1 + cost e2 + 20
-    | CONCAT (e1,e2) -> cost e1 + cost e2 + 20
-    | CLOSURE e -> cost e + 30
+    | CONCAT (e1,e2) -> cost e1 + cost e2 + 30
+    | CLOSURE e -> cost e + 20
     | OZ e -> cost e + 20
     | HOLE _ -> 100 in
     cost e

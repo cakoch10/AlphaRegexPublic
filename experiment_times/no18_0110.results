@@ -1,0 +1,56 @@
+============  INPUT  =============
+- Positive Examples:
+0
+0110
+01110
+011110
+111
+01111
+1111110
+- Negative Examples:
+00
+010
+10101
+010111
+111010
+0011111
+1111100
+==========  PROCESSING  ==========
+1000. Worklist size :  889 1888 1888 took 0.089487sec total: 0.089488
+2000. Worklist size :  1779 3778 3778 took 0.091547sec total: 0.181038
+3000. Worklist size :  2673 5672 5672 took 0.096491sec total: 0.277532
+4000. Worklist size :  3603 7602 7602 took 0.102651sec total: 0.380186
+5000. Worklist size :  4520 9519 9519 took 0.120679sec total: 0.500867
+6000. Worklist size :  5359 11358 11358 took 0.108283sec total: 0.609153
+7000. Worklist size :  6243 13242 13242 took 0.111561sec total: 0.720715
+8000. Worklist size :  7098 15097 15097 took 0.102286sec total: 0.823005
+9000. Worklist size :  7911 16910 16910 took 0.102327sec total: 0.925335
+10000. Worklist size :  8809 18808 18808 took 0.131757sec total: 1.057095
+11000. Worklist size :  9679 20678 20678 took 0.115189sec total: 1.172286
+12000. Worklist size :  10525 22524 22524 took 0.106588sec total: 1.278877
+13000. Worklist size :  11292 24291 24291 took 0.116853sec total: 1.395734
+14000. Worklist size :  12074 26073 26073 took 0.101569sec total: 1.497306
+15000. Worklist size :  12935 27934 27934 took 0.10722sec total: 1.60453
+16000. Worklist size :  13701 29700 29700 took 0.155091sec total: 1.759624
+17000. Worklist size :  14587 31586 31586 took 0.144211sec total: 1.903838
+============  OUTPUT  ============
+0?(1(10)?)*
+Level: 6
+ - 0?(1(10)?)*  0 : accept
+ - 0?(1(10)?)*  0110 : accept
+ - 0?(1(10)?)*  01110 : accept
+ - 0?(1(10)?)*  011110 : accept
+ - 0?(1(10)?)*  111 : accept
+ - 0?(1(10)?)*  01111 : accept
+ - 0?(1(10)?)*  1111110 : accept
+ - 0?(1(10)?)*  00 : reject
+ - 0?(1(10)?)*  010 : reject
+ - 0?(1(10)?)*  10101 : reject
+ - 0?(1(10)?)*  010111 : reject
+ - 0?(1(10)?)*  111010 : reject
+ - 0?(1(10)?)*  0011111 : reject
+ - 0?(1(10)?)*  1111100 : reject
+============  REPORT  =============
+Iter : 17104
+Time : 1.932564 seconds
+
