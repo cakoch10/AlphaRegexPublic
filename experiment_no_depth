@@ -1,5 +1,6 @@
 #!/bin/bash
 for file in ./benchmarks/no*
 do
-	./main.native -input $file  > ./experiment_results/$(basename $file).results 
+	echo $file
+	./main.native -input $file  > ./experiment_original/$(basename $file).results 
 done

@@ -131,7 +131,7 @@ let cost : exp -> int
     | CLOSURE e -> cost e + 20 (*20*)
     | OZ e -> cost e + 20 (*20*)
     | HOLE _ -> 100 (*100*) in
-  cost e
+  cost e + get_depth e
 (* + int_of_float (float_of_int 10 ** float_of_int (get_depth e - 2))
 let cost : exp -> int
 =fun e ->
