@@ -19,6 +19,8 @@ res = {}
 directory1 = "./experiment_results"
 directory2 = "./benchmarks"
 
+k=1
+
 def get_data(directory):
     res = {}
     files = os.listdir(directory)
@@ -31,9 +33,12 @@ def get_data(directory):
             # print(name)
             file_results = []
             with open(os.path.join(directory, filename), 'r') as f: # open in readonly mode
-                for line in f:
+                for i in range(0, len(f)):
+                # for line in f:
+                    line = f[i]
                     if line[:5] == "Level":
                         # print(line.split()[1])
+                        file_results.append(f[i-1])
                         level = line.split()[1]
                         file_results.append(int(level))
                     elif line[:4] == "Iter":
@@ -53,7 +58,7 @@ def get_data(directory):
 
 
 res = get_data(directory1)
-df = pd.DataFrame.from_dict(res, orient='index', columns=['Level', 'Iter', 'Time'])
+df = pd.DataFrame.from_dict(res, orient='index', columns=['Regex','Level', 'Iter', 'Time'])
 
 # print(df)
 index = df.index
@@ -64,7 +69,7 @@ times1 = df['Time']
 print(times1)
 
 res2 = get_data(directory2)
-df2 = pd.DataFrame.from_dict(res, orient='index', columns=['Level', 'Iter', 'Time'])
+df2 = pd.DataFrame.from_dict(res, orient='index', columns=['Regex','Level', 'Iter', 'Time'])
 # df = df.rename(index=['Level', 'Iter', 'Time'])
 # print(df2)
 
