@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 res = {}
 
 directory1 = "./experiment_results"
-directory2 = "./benchmarks"
+directory2 = "./experiment_original"
 
 def get_data(directory):
     res = {}
@@ -64,18 +64,29 @@ times1 = df['Time']
 print(times1)
 
 res2 = get_data(directory2)
-df2 = pd.DataFrame.from_dict(res, orient='index', columns=['Level', 'Iter', 'Time'])
+df2 = pd.DataFrame.from_dict(res2, orient='index', columns=['Level', 'Iter', 'Time'])
 # df = df.rename(index=['Level', 'Iter', 'Time'])
 # print(df2)
 
 times2 = df2['Time']
-print(times2)
 
 dfplot = pd.DataFrame({"Without Depth":times1,"With Depth":times2})
-ax = dfplot.plot.bar(rot=0)
+ax = dfplot.plot.bar()
 ax.set_xlabel("Dataset")
 ax.set_ylabel("Time")
+
+plt.tight_layout()
 plt.savefig("time.png")
+
+
+dfplot = pd.DataFrame({"Without Depth":df['Iter'],"With Depth":df2['Iter']})
+ax = dfplot.plot.bar()
+ax.set_xlabel("Dataset")
+ax.set_ylabel("Iter")
+
+plt.tight_layout()
+plt.savefig("iter.png")
+
 
 
 df['Key'] = 'WithoutDepth'
