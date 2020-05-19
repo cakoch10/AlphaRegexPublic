@@ -1,0 +1,31 @@
+============  INPUT  =============
+- Positive Examples:
+00
+1001
+010010
+1011001110
+- Negative Examples:
+01
+11
+000
+00100
+==========  PROCESSING  ==========
+1000. Worklist size :  674 1673 1673 took 0.048291sec total: 0.048292
+2000. Worklist size :  1233 3232 3232 took 0.055036sec total: 0.103332
+3000. Worklist size :  1950 4949 4949 took 0.064924sec total: 0.168258
+4000. Worklist size :  2529 6528 6528 took 0.06522sec total: 0.233481
+============  OUTPUT  ============
+0?(0+10(0+1)*)
+Level: 7
+ - 0?(0+10(0+1)*)  00 : accept
+ - 0?(0+10(0+1)*)  1001 : accept
+ - 0?(0+10(0+1)*)  010010 : accept
+ - 0?(0+10(0+1)*)  1011001110 : accept
+ - 0?(0+10(0+1)*)  01 : reject
+ - 0?(0+10(0+1)*)  11 : reject
+ - 0?(0+10(0+1)*)  000 : reject
+ - 0?(0+10(0+1)*)  00100 : reject
+============  REPORT  =============
+Iter : 4912
+Time : 0.289161 seconds
+
