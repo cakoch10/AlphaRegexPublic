@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 res = {}
 
-directory1 = "./experiment_results"
+directory1 = "./experiment_times"
 directory2 = "./experiment_original"
 
 k=1
@@ -33,12 +33,11 @@ def get_data(directory):
             # print(name)
             file_results = []
             with open(os.path.join(directory, filename), 'r') as f: # open in readonly mode
-                for i in range(0, len(f)):
-                # for line in f:
-                    line = f[i]
+                last_line = ""
+                for line in f:
                     if line[:5] == "Level":
                         # print(line.split()[1])
-                        file_results.append(f[i-1])
+                        file_results.append(last_line.strip())
                         level = line.split()[1]
                         file_results.append(int(level))
                     elif line[:4] == "Iter":
@@ -48,6 +47,7 @@ def get_data(directory):
                     elif line[:4] == "Time":
                         tme = line.split()[2]
                         file_results.append(float(tme))
+                    last_line = line
                 if len(file_results) != 0:
                     res[name] = file_results
                         # print(line.split()[2])
@@ -60,7 +60,7 @@ def get_data(directory):
 res = get_data(directory1)
 df = pd.DataFrame.from_dict(res, orient='index', columns=['Regex','Level', 'Iter', 'Time'])
 
-# print(df)
+print(df)
 index = df.index
 # print(list(index))
 times1 = df['Time']
@@ -69,19 +69,19 @@ times1 = df['Time']
 print(times1)
 
 res2 = get_data(directory2)
-df2 = pd.DataFrame.from_dict(res, orient='index', columns=['Regex','Level', 'Iter', 'Time'])
+df2 = pd.DataFrame.from_dict(res2, orient='index', columns=['Regex','Level', 'Iter', 'Time'])
 # df = df.rename(index=['Level', 'Iter', 'Time'])
-# print(df2)
+print(df2)
 
 times2 = df2['Time']
 
-dfplot = pd.DataFrame({"Without Depth":times1,"With Depth":times2})
+dfplot = pd.DataFrame({"Penalize Product":times1,"Original Cost":times2})
 ax = dfplot.plot.bar()
 ax.set_xlabel("Dataset")
 ax.set_ylabel("Time")
 
 plt.tight_layout()
-plt.savefig("time.png")
+plt.savefig("time_times.png")
 
 
 dfplot = pd.DataFrame({"Without Depth":df['Iter'],"With Depth":df2['Iter']})
@@ -90,7 +90,7 @@ ax.set_xlabel("Dataset")
 ax.set_ylabel("Iter")
 
 plt.tight_layout()
-plt.savefig("iter.png")
+plt.savefig("iter_times.png")
 
 
 
