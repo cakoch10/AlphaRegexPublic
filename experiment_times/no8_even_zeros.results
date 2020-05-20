@@ -16,7 +16,9 @@
 1010101
 00000
 ==========  PROCESSING  ==========
-1000. Worklist size :  810 1809 1809 took 0.089463sec total: 0.089464
+1000. Worklist size :  829 1828 1828 took 0.076817sec total: 0.076818
+2000. Worklist size :  1644 3643 3643 took 0.089946sec total: 0.166778
+3000. Worklist size :  2450 5449 5449 took 0.091017sec total: 0.257797
 ============  OUTPUT  ============
 (1+01*0)*
 Level: 6
@@ -35,6 +37,6 @@ Level: 6
  - (1+01*0)*  1010101 : reject
  - (1+01*0)*  00000 : reject
 ============  REPORT  =============
-Iter : 1919
-Time : 0.162613 seconds
+Iter : 3503
+Time : 0.302303 seconds
 

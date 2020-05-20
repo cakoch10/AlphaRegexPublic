@@ -51,10 +51,12 @@
 11000
 11001
 ==========  PROCESSING  ==========
-1000. Worklist size :  754 1753 1753 took 0.162126sec total: 0.162128
-2000. Worklist size :  1506 3505 3505 took 0.189289sec total: 0.351421
-3000. Worklist size :  2168 5167 5167 took 0.170479sec total: 0.521901
-4000. Worklist size :  2822 6821 6821 took 0.165959sec total: 0.687862
+1000. Worklist size :  794 1793 1793 took 0.169229sec total: 0.16923
+2000. Worklist size :  1525 3524 3524 took 0.184899sec total: 0.354132
+3000. Worklist size :  2312 5311 5311 took 0.182385sec total: 0.536518
+4000. Worklist size :  3130 7129 7129 took 0.194746sec total: 0.731266
+5000. Worklist size :  3763 8762 8762 took 0.205615sec total: 0.936883
+6000. Worklist size :  4501 10500 10500 took 0.21063sec total: 1.147516
 ============  OUTPUT  ============
 0*(1(0+1)?)*
 Level: 6
@@ -108,6 +110,6 @@ Level: 6
  - 0*(1(0+1)?)*  11000 : reject
  - 0*(1(0+1)?)*  11001 : reject
 ============  REPORT  =============
-Iter : 4015
-Time : 0.69198 seconds
+Iter : 6352
+Time : 1.231721 seconds
 
