@@ -98,6 +98,6 @@ Level: 6
  - (0+1)(0+1)0(0+1)*  1110 : reject
  - (0+1)(0+1)0(0+1)*  1111 : reject
 ============  REPORT  =============
-Iter : 36
-Time : 0.007989 seconds
+Iter : 227
+Time : 0.035278 seconds
 

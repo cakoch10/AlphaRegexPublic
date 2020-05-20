@@ -194,6 +194,6 @@ Level: 5
  - ((0+1)(0+1)(0+1))*  1110 : reject
  - ((0+1)(0+1)(0+1))*  1111 : reject
 ============  REPORT  =============
-Iter : 109
-Time : 0.025764 seconds
+Iter : 208
+Time : 0.060106 seconds
 

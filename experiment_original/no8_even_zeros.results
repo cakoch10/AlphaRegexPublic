@@ -16,7 +16,7 @@
 1010101
 00000
 ==========  PROCESSING  ==========
-1000. Worklist size :  746 1745 1745 took 0.074573sec total: 0.074576
+1000. Worklist size :  746 1745 1745 took 0.070873sec total: 0.070876
 ============  OUTPUT  ============
 (1+01*0)*
 Level: 6
@@ -36,5 +36,5 @@ Level: 6
  - (1+01*0)*  00000 : reject
 ============  REPORT  =============
 Iter : 1446
-Time : 0.109645 seconds
+Time : 0.109602 seconds
 

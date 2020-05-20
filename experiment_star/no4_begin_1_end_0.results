@@ -38,6 +38,6 @@ Level: 5
  - 1(0+1)*0  001 : reject
  - 1(0+1)*0  011 : reject
 ============  REPORT  =============
-Iter : 182
-Time : 0.011806 seconds
+Iter : 215
+Time : 0.018504 seconds
 

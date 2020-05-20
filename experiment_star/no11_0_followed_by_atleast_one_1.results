@@ -32,6 +32,6 @@ Level: 4
  - (0?1)*  01010 : reject
  - (0?1)*  011010 : reject
 ============  REPORT  =============
-Iter : 80
-Time : 0.005032 seconds
+Iter : 135
+Time : 0.010259 seconds
 

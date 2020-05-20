@@ -13,25 +13,18 @@
 00001
 0000111
 ==========  PROCESSING  ==========
-1000. Worklist size :  689 1688 1688 took 0.067497sec total: 0.067498
-2000. Worklist size :  1361 3360 3360 took 0.064895sec total: 0.132395
-3000. Worklist size :  1993 4992 4992 took 0.061847sec total: 0.194245
-4000. Worklist size :  2646 6645 6645 took 0.064565sec total: 0.258812
-5000. Worklist size :  3353 8352 8352 took 0.066925sec total: 0.32574
-6000. Worklist size :  4078 10077 10077 took 0.083283sec total: 0.409026
-7000. Worklist size :  4701 11700 11700 took 0.069907sec total: 0.478936
-8000. Worklist size :  5332 13331 13331 took 0.065546sec total: 0.544486
-9000. Worklist size :  6023 15022 15022 took 0.071595sec total: 0.616083
-10000. Worklist size :  6719 16718 16718 took 0.071296sec total: 0.687382
-11000. Worklist size :  7437 18436 18436 took 0.084217sec total: 0.771603
-12000. Worklist size :  8116 20115 20115 took 0.075951sec total: 0.847557
-13000. Worklist size :  8814 21813 21813 took 0.08838sec total: 0.93594
-14000. Worklist size :  9524 23523 23523 took 0.091634sec total: 1.027578
-15000. Worklist size :  10138 25137 25137 took 0.096802sec total: 1.124382
-16000. Worklist size :  10851 26850 26850 took 0.077002sec total: 1.201387
+1000. Worklist size :  666 1665 1665 took 0.063262sec total: 0.063257
+2000. Worklist size :  1355 3354 3354 took 0.066744sec total: 0.130003
+3000. Worklist size :  1987 4986 4986 took 0.066811sec total: 0.196816
+4000. Worklist size :  2638 6637 6637 took 0.064389sec total: 0.261208
+5000. Worklist size :  3275 8274 8274 took 0.067923sec total: 0.329135
+6000. Worklist size :  3971 9970 9970 took 0.083396sec total: 0.412533
+7000. Worklist size :  4659 11658 11658 took 0.066805sec total: 0.479342
+8000. Worklist size :  5335 13334 13334 took 0.077955sec total: 0.557301
+9000. Worklist size :  6113 15112 15112 took 0.076155sec total: 0.633459
 ============  OUTPUT  ============
 000(0+11)*
-Level: 6
+Level: 7
  - 000(0+11)*  000 : accept
  - 000(0+11)*  00011 : accept
  - 000(0+11)*  0001111 : accept
@@ -44,6 +37,6 @@ Level: 6
  - 000(0+11)*  00001 : reject
  - 000(0+11)*  0000111 : reject
 ============  REPORT  =============
-Iter : 16709
-Time : 1.260296 seconds
+Iter : 9835
+Time : 0.697271 seconds
 

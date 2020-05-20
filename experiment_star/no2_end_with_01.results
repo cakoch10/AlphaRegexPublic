@@ -38,6 +38,6 @@ Level: 4
  - (0+1)*01  011 : reject
  - (0+1)*01  111 : reject
 ============  REPORT  =============
-Iter : 279
-Time : 0.013871 seconds
+Iter : 275
+Time : 0.024989 seconds
 

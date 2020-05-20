@@ -16,7 +16,7 @@
 0011111
 1111100
 ==========  PROCESSING  ==========
-1000. Worklist size :  831 1830 1830 took 0.08138sec total: 0.081381
+1000. Worklist size :  831 1830 1830 took 0.07715sec total: 0.077151
 ============  OUTPUT  ============
 0?(1(10)?)*
 Level: 6
@@ -36,5 +36,5 @@ Level: 6
  - 0?(1(10)?)*  1111100 : reject
 ============  REPORT  =============
 Iter : 1529
-Time : 0.12742 seconds
+Time : 0.121325 seconds
 

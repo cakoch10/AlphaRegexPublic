@@ -13,11 +13,11 @@
 00001
 0000111
 ==========  PROCESSING  ==========
-1000. Worklist size :  661 1660 1660 took 0.062193sec total: 0.062192
-2000. Worklist size :  1333 3332 3332 took 0.064149sec total: 0.126346
-3000. Worklist size :  1970 4969 4969 took 0.06116sec total: 0.187508
-4000. Worklist size :  2596 6595 6595 took 0.064323sec total: 0.251833
-5000. Worklist size :  3182 8181 8181 took 0.071386sec total: 0.323222
+1000. Worklist size :  661 1660 1660 took 0.062868sec total: 0.062868
+2000. Worklist size :  1333 3332 3332 took 0.065198sec total: 0.128067
+3000. Worklist size :  1970 4969 4969 took 0.057251sec total: 0.185321
+4000. Worklist size :  2596 6595 6595 took 0.066795sec total: 0.252119
+5000. Worklist size :  3182 8181 8181 took 0.07176sec total: 0.323882
 ============  OUTPUT  ============
 0*000(11)*
 Level: 6
@@ -34,5 +34,5 @@ Level: 6
  - 0*000(11)*  0000111 : reject
 ============  REPORT  =============
 Iter : 5391
-Time : 0.351392 seconds
+Time : 0.352843 seconds
 

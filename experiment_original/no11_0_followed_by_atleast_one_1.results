@@ -33,5 +33,5 @@ Level: 4
  - (0?1)*  011010 : reject
 ============  REPORT  =============
 Iter : 51
-Time : 0.003335 seconds
+Time : 0.003663 seconds
 

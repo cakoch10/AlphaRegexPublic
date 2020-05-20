@@ -69,18 +69,12 @@
 1110
 1111
 ==========  PROCESSING  ==========
-1000. Worklist size :  479 1478 1478 took 0.233725sec total: 0.233726
-2000. Worklist size :  957 2956 2956 took 0.338708sec total: 0.572436
-3000. Worklist size :  1414 4413 4413 took 0.350911sec total: 0.923351
-4000. Worklist size :  1864 5863 5863 took 0.450614sec total: 1.373967
-5000. Worklist size :  2395 7394 7394 took 0.374709sec total: 1.748678
-6000. Worklist size :  2878 8877 8877 took 0.492104sec total: 2.240787
-7000. Worklist size :  3295 10294 10294 took 0.554692sec total: 2.795481
-8000. Worklist size :  3798 11797 11797 took 0.375164sec total: 3.170648
-9000. Worklist size :  4215 13214 13214 took 0.541849sec total: 3.7125
-10000. Worklist size :  4756 14755 14755 took 0.68459sec total: 4.397093
-11000. Worklist size :  5164 16163 16163 took 0.337108sec total: 4.734204
-12000. Worklist size :  5610 17609 17609 took 0.295866sec total: 5.030073
+1000. Worklist size :  448 1447 1447 took 0.16459sec total: 0.164591
+2000. Worklist size :  909 2908 2908 took 0.22064sec total: 0.385235
+3000. Worklist size :  1348 4347 4347 took 0.233335sec total: 0.618573
+4000. Worklist size :  1746 5745 5745 took 0.191832sec total: 0.810409
+5000. Worklist size :  2172 7171 7171 took 0.318437sec total: 1.128848
+6000. Worklist size :  2669 8668 8668 took 0.356097sec total: 1.484949
 ============  OUTPUT  ============
 (0+1)*0101(0+1)*
 Level: 8
@@ -152,6 +146,6 @@ Level: 8
  - (0+1)*0101(0+1)*  1110 : reject
  - (0+1)*0101(0+1)*  1111 : reject
 ============  REPORT  =============
-Iter : 12636
-Time : 5.224743 seconds
+Iter : 6469
+Time : 1.678757 seconds
 

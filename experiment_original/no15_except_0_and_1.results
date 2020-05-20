@@ -66,6 +66,6 @@ Level: 5
  - (0+1)(0+1)(0+1)*  0 : reject
  - (0+1)(0+1)(0+1)*  1 : reject
 ============  REPORT  =============
-Iter : 31
-Time : 0.004332 seconds
+Iter : 74
+Time : 0.012094 seconds
 

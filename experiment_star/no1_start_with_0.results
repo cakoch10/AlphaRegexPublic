@@ -35,5 +35,5 @@ Level: 4
  - 0(0+1)*  111 : reject
 ============  REPORT  =============
 Iter : 22
-Time : 0.00219 seconds
+Time : 0.001507 seconds
 
