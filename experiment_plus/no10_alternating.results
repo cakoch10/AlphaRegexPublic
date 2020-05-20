@@ -1,0 +1,66 @@
+============  INPUT  =============
+- Positive Examples:
+0
+1
+01
+10
+101
+010
+1010
+0101
+10101
+- Negative Examples:
+00
+11
+011
+001
+110
+1001
+101101
+010010
+==========  PROCESSING  ==========
+1000. Worklist size :  781 1780 1780 took 0.07537sec total: 0.075371
+2000. Worklist size :  1613 3612 3612 took 0.09722sec total: 0.172593
+3000. Worklist size :  2359 5358 5358 took 0.078304sec total: 0.2509
+4000. Worklist size :  3208 7207 7207 took 0.083983sec total: 0.334887
+5000. Worklist size :  4068 9067 9067 took 0.081785sec total: 0.416676
+6000. Worklist size :  4713 10712 10712 took 0.089919sec total: 0.506596
+7000. Worklist size :  5358 12357 12357 took 0.082173sec total: 0.588773
+8000. Worklist size :  5968 13967 13967 took 0.085961sec total: 0.674737
+9000. Worklist size :  6565 15564 15564 took 0.083563sec total: 0.758303
+10000. Worklist size :  7411 17410 17410 took 0.086879sec total: 0.845187
+11000. Worklist size :  8295 19294 19294 took 0.094625sec total: 0.939815
+12000. Worklist size :  9146 21145 21145 took 0.091365sec total: 1.031182
+13000. Worklist size :  9787 22786 22786 took 0.099884sec total: 1.13107
+14000. Worklist size :  10510 24509 24509 took 0.094139sec total: 1.225212
+15000. Worklist size :  11152 26151 26151 took 0.099535sec total: 1.32475
+16000. Worklist size :  11840 27839 27839 took 0.09052sec total: 1.415272
+17000. Worklist size :  12444 29443 29443 took 0.096576sec total: 1.511852
+18000. Worklist size :  12991 30990 30990 took 0.084919sec total: 1.596775
+19000. Worklist size :  13626 32625 32625 took 0.088622sec total: 1.685399
+20000. Worklist size :  14510 34509 34509 took 0.090989sec total: 1.776392
+21000. Worklist size :  15377 36376 36376 took 0.103653sec total: 1.880046
+============  OUTPUT  ============
+1?(01)?(01?)?
+Level: 6
+ - 1?(01)?(01?)?  0 : accept
+ - 1?(01)?(01?)?  1 : accept
+ - 1?(01)?(01?)?  01 : accept
+ - 1?(01)?(01?)?  10 : accept
+ - 1?(01)?(01?)?  101 : accept
+ - 1?(01)?(01?)?  010 : accept
+ - 1?(01)?(01?)?  1010 : accept
+ - 1?(01)?(01?)?  0101 : accept
+ - 1?(01)?(01?)?  10101 : accept
+ - 1?(01)?(01?)?  00 : reject
+ - 1?(01)?(01?)?  11 : reject
+ - 1?(01)?(01?)?  011 : reject
+ - 1?(01)?(01?)?  001 : reject
+ - 1?(01)?(01?)?  110 : reject
+ - 1?(01)?(01?)?  1001 : reject
+ - 1?(01)?(01?)?  101101 : reject
+ - 1?(01)?(01?)?  010010 : reject
+============  REPORT  =============
+Iter : 21102
+Time : 1.894632 seconds
+

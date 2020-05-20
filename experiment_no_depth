@@ -2,5 +2,5 @@
 for file in ./benchmarks/no*
 do
 	echo $file
-	./main.native -input $file  > ./experiment_times/$(basename $file).results 
+	./main.native -input $file  > ./experiment_plus/$(basename $file).results 
 done
