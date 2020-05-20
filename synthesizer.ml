@@ -8,9 +8,11 @@ open Hopeless
 module CostMain = struct let cost = Lang.cost end
 module CostTimes = struct let cost = Lang.cost_times end
 module CostStar = struct let cost = Lang.cost_star end
+module CostPlus = struct let cost = Lang.cost_plus end
 
-module WorklistTimes = Worklist.Make(CostTimes)
+module WorklistTimes = Worklist.Make(CostPlus)
 module WorklistStar = Worklist.Make(CostStar)
+module WorklistPlus = Worklist.Make(CostTimes)
 module Worklist = Worklist.Make(CostMain)
 
 (*************************************)
