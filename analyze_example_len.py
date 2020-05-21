@@ -55,6 +55,7 @@ for dataset in res:
     for word in binary_strings:
         if not re.match(regex_str, word):
             neg_lst.append(word)
+    neg_lst = neg_lst[:500]
     # need to generate subsets
     pn = len(pos_lst)
     nn = len(neg_lst)
@@ -67,7 +68,7 @@ for dataset in res:
     pos_sample = [pos_lst,half_pos,quarter_pos,six_pos,thirty_pos,sixty_pos]
     
     print(res[dataset]["original"])
-    print(pn)
+    print(nn)
 
     half_neg = random.sample(neg_lst,int(nn/2))
     quarter_neg = random.sample(half_neg,int(nn/4))

@@ -1,4 +1,4 @@
-input for (0+1(0+1))((0+1)(0+1))* with 500 positive examples and 511 negative examples
+input for (0+1(0+1))((0+1)(0+1))* with 500 positive examples and 500 negative examples
 ++
 0
 000
@@ -1001,14 +1001,3 @@ input for (0+1(0+1))((0+1)(0+1))* with 500 positive examples and 511 negative ex
 111110010
 111110011
 111110100
-111110101
-111110110
-111110111
-111111000
-111111001
-111111010
-111111011
-111111100
-111111101
-111111110
-111111111
