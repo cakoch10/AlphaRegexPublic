@@ -1,5 +1,5 @@
 #!/bin/bash
-for file in ./benchmarks/no*
+for file in ./input_size_benchmarks/*
 do
 	echo $file
 	./main.native -input $file  > ./experiment_plus/$(basename $file).results 

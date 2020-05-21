@@ -1,25 +1,18 @@
 
 import os
 import pandas as pd
-
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+# variables for experiment setup
 
+# operation should be set to "plus", "star", or "times"
+operation = "same"
 
-# directory = os.fsencode("./experiment_results")
-
-# for file in os.listdir(directory):
-#      filename = os.fsdecode(file)
-#      with open(os.path.join(os.cwd(), filename), 'r') as f:
-
-res = {}
-
-directory1 = "./experiment_times"
+directory1 = "./experiment_" + operation
 directory2 = "./experiment_original"
 
-k=1
 
 def get_data(directory):
     res = {}
@@ -48,7 +41,7 @@ def get_data(directory):
                         tme = line.split()[2]
                         file_results.append(float(tme))
                     last_line = line
-                if len(file_results) != 0:
+                if len(file_results) != 0 and name != "no24":
                     res[name] = file_results
                         # print(line.split()[2])
                     # for word in line.split():
@@ -60,37 +53,44 @@ def get_data(directory):
 res = get_data(directory1)
 df = pd.DataFrame.from_dict(res, orient='index', columns=['Regex','Level', 'Iter', 'Time'])
 
+print("Raw data from directory " + directory1 + "\n")
+
 print(df)
 index = df.index
 # print(list(index))
 times1 = df['Time']
 # print(times)
 
-print(times1)
+print("\n---------------------------------------------\n")
+
+# print(times1)
 
 res2 = get_data(directory2)
 df2 = pd.DataFrame.from_dict(res2, orient='index', columns=['Regex','Level', 'Iter', 'Time'])
 # df = df.rename(index=['Level', 'Iter', 'Time'])
+print("Raw data from directory " + directory2 + "\n")
 print(df2)
 
 times2 = df2['Time']
 
-dfplot = pd.DataFrame({"Penalize Product":times1,"Original Cost":times2})
+bar_plot_name = "Penalize " + operation
+
+dfplot = pd.DataFrame({bar_plot_name:times1,"Original cost":times2})
 ax = dfplot.plot.bar()
 ax.set_xlabel("Dataset")
 ax.set_ylabel("Time")
 
 plt.tight_layout()
-plt.savefig("time_times.png")
+plt.savefig("Graphs/time_penalize_without_24_"+operation+".png", dpi=1200)
 
 
-dfplot = pd.DataFrame({"Without Depth":df['Iter'],"With Depth":df2['Iter']})
+dfplot = pd.DataFrame({bar_plot_name:df['Iter'],"Original cost":df2['Iter']})
 ax = dfplot.plot.bar()
 ax.set_xlabel("Dataset")
 ax.set_ylabel("Iter")
 
 plt.tight_layout()
-plt.savefig("iter_times.png")
+plt.savefig("Graphs/iter_penalize_without_24_" + operation + ".png", dpi=1200)
 
 
 
