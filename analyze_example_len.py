@@ -33,7 +33,7 @@ for filename in files:
                     # print(line.split()[1])
                     file_results = last_line.strip()
                 last_line = line
-            if len(file_results) != 0:
+            if len(file_results) != 0 and name=='no10':
                 # need to replace + with | to work with re library
                 regexes = {}
                 regexes["original"] = name
@@ -50,12 +50,14 @@ for dataset in res:
     while len(pos_lst) < 500:
         lim = lim + 1
         pos_lst = list(exrex.generate(regex_str,limit=lim))
-    pos_lst = pos_lst[:500]
+    pos_lst = sorted(pos_lst, key=len)
+    pos_lst = pos_lst[:250]
     neg_lst = []
     for word in binary_strings:
         if not re.match(regex_str, word):
             neg_lst.append(word)
     neg_lst = neg_lst[:500]
+    print(str(len(pos_lst[-1])))
     # need to generate subsets
     pn = len(pos_lst)
     nn = len(neg_lst)
@@ -78,7 +80,7 @@ for dataset in res:
 
     neg_sample = [neg_lst,half_neg,quarter_neg,six_neg,thirty_neg,sixty_neg]
 
-    for i in range(0,6):
+    for i in range(0,len(pos_sample)):
         p = pos_sample[i]
         n = neg_sample[i]
         description = "input for " + res[dataset]["regex"] + " with " + str(len(p)) 
@@ -86,8 +88,8 @@ for dataset in res:
         f_str = generate_ar_input(p, n, description)
         # write f_str to file
         f_name = "input_size_benchmarks/" + res[dataset]["original"] + "_" + str(i)
-        with open(f_name, "w") as f:
-            f.write(f_str)
+        # with open(f_name, "w") as f:
+        #     f.write(f_str)
 
 
 
