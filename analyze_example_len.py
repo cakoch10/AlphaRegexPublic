@@ -50,7 +50,7 @@ for dataset in res:
     while len(pos_lst) < 500:
         lim = lim + 1
         pos_lst = list(exrex.generate(regex_str,limit=lim))
-    pos_lst = [p for p in pos_lst if len(p) < 30]
+    pos_lst = [p for p in pos_lst if len(p) < 20]
     pos_lst = pos_lst[:500]
     # pos_lst = sorted(pos_lst, key=len)
     # pos_lst = pos_lst[:250]

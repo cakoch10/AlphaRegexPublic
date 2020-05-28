@@ -1,11 +1,11 @@
-input for (1?0)?(1(01*)?)? with 1 positive examples and 7 negative examples
+input for (1?0)?(1(01*)?)? with 0 positive examples and 7 negative examples
 ++
-101011111111111111111111111
+
 --
-11111111
-11000
-01001
-00
-000000100
-01011110
-01110001
+10101000
+1000100
+10001010
+10101110
+11110
+00010001
+000001
