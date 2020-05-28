@@ -33,7 +33,7 @@ for filename in files:
                     # print(line.split()[1])
                     file_results = last_line.strip()
                 last_line = line
-            if len(file_results) != 0 and name=='no10':
+            if len(file_results) != 0:
                 # need to replace + with | to work with re library
                 regexes = {}
                 regexes["original"] = name
