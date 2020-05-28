@@ -50,8 +50,10 @@ for dataset in res:
     while len(pos_lst) < 500:
         lim = lim + 1
         pos_lst = list(exrex.generate(regex_str,limit=lim))
-    pos_lst = sorted(pos_lst, key=len)
-    pos_lst = pos_lst[:250]
+    pos_lst = [p for p in pos_lst if len(p) < 30]
+    pos_lst = pos_lst[:500]
+    # pos_lst = sorted(pos_lst, key=len)
+    # pos_lst = pos_lst[:250]
     neg_lst = []
     for word in binary_strings:
         if not re.match(regex_str, word):
@@ -70,7 +72,7 @@ for dataset in res:
     pos_sample = [pos_lst,half_pos,quarter_pos,six_pos,thirty_pos,sixty_pos]
     
     print(res[dataset]["original"])
-    print(nn)
+    print(pn)
 
     half_neg = random.sample(neg_lst,int(nn/2))
     quarter_neg = random.sample(half_neg,int(nn/4))
@@ -88,8 +90,9 @@ for dataset in res:
         f_str = generate_ar_input(p, n, description)
         # write f_str to file
         f_name = "input_size_benchmarks/" + res[dataset]["original"] + "_" + str(i)
-        # with open(f_name, "w") as f:
-        #     f.write(f_str)
+        with open(f_name, "w") as f:
+            f.write(f_str)
+        print("Wrote to " + f_name)
 
 
 
