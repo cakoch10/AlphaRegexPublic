@@ -1,0 +1,79 @@
+============  INPUT  =============
+- Positive Examples:
+10010001
+1000101
+0001101
+0101100
+1001
+11011100
+10101001
+01001011
+01100001
+0100001
+01110111
+10000100
+1000001
+00000100
+00011001
+- Negative Examples:
+111010010
+110101110
+01101010
+100100010
+10110
+101101010
+1
+1001010
+==========  PROCESSING  ==========
+1000. Worklist size :  704 1703 1703 took 0.11482sec total: 0.114822
+2000. Worklist size :  1477 3476 3476 took 0.133833sec total: 0.248659
+3000. Worklist size :  2196 5195 5195 took 0.136672sec total: 0.385334
+4000. Worklist size :  2842 6841 6841 took 0.128843sec total: 0.51418
+5000. Worklist size :  3522 8521 8521 took 0.142833sec total: 0.657016
+6000. Worklist size :  4194 10193 10193 took 0.166816sec total: 0.823834
+7000. Worklist size :  4963 11962 11962 took 0.160172sec total: 0.98401
+8000. Worklist size :  5740 13739 13739 took 0.186219sec total: 1.170234
+9000. Worklist size :  6366 15365 15365 took 0.137613sec total: 1.30785
+10000. Worklist size :  7030 17029 17029 took 0.140877sec total: 1.448731
+11000. Worklist size :  7737 18736 18736 took 0.148233sec total: 1.596969
+12000. Worklist size :  8483 20482 20482 took 0.14388sec total: 1.740851
+13000. Worklist size :  9179 22178 22178 took 0.150908sec total: 1.891762
+14000. Worklist size :  9881 23880 23880 took 0.25474sec total: 2.146506
+15000. Worklist size :  10625 25624 25624 took 0.176471sec total: 2.322981
+16000. Worklist size :  11352 27351 27351 took 0.152434sec total: 2.475419
+17000. Worklist size :  12112 29111 29111 took 0.1641sec total: 2.639523
+18000. Worklist size :  12760 30759 30759 took 0.162017sec total: 2.801544
+19000. Worklist size :  13330 32329 32329 took 0.163504sec total: 2.965052
+20000. Worklist size :  13979 33978 33978 took 0.165544sec total: 3.130599
+21000. Worklist size :  14662 35661 35661 took 0.183946sec total: 3.314549
+22000. Worklist size :  15284 37283 37283 took 0.182652sec total: 3.497204
+============  OUTPUT  ============
+(1*0)*0(0*1)*
+Level: 6
+ - (1*0)*0(0*1)*  10010001 : accept
+ - (1*0)*0(0*1)*  1000101 : accept
+ - (1*0)*0(0*1)*  0001101 : accept
+ - (1*0)*0(0*1)*  0101100 : accept
+ - (1*0)*0(0*1)*  1001 : accept
+ - (1*0)*0(0*1)*  11011100 : accept
+ - (1*0)*0(0*1)*  10101001 : accept
+ - (1*0)*0(0*1)*  01001011 : accept
+ - (1*0)*0(0*1)*  01100001 : accept
+ - (1*0)*0(0*1)*  0100001 : accept
+ - (1*0)*0(0*1)*  01110111 : accept
+ - (1*0)*0(0*1)*  10000100 : accept
+ - (1*0)*0(0*1)*  1000001 : accept
+ - (1*0)*0(0*1)*  00000100 : accept
+ - (1*0)*0(0*1)*  00011001 : accept
+ - (1*0)*0(0*1)*  111010010 : reject
+ - (1*0)*0(0*1)*  110101110 : reject
+ - (1*0)*0(0*1)*  01101010 : reject
+ - (1*0)*0(0*1)*  100100010 : reject
+ - (1*0)*0(0*1)*  10110 : reject
+ - (1*0)*0(0*1)*  101101010 : reject
+ - (1*0)*0(0*1)*  1 : reject
+ - (1*0)*0(0*1)*  1001010 : reject
+============  REPORT  =============
+Iter : 22437
+Time : 3.576365 seconds
+

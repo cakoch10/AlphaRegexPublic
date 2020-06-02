@@ -119,7 +119,8 @@ let rec get_depth e =
   | OZ e -> get_depth e + 1
   | HOLE _ -> 1
 
-let cost_original : exp -> int
+let cost_original e = 0
+let cost : exp -> int
 =fun e ->
   let rec cost e = 
     match e with
@@ -161,8 +162,7 @@ let cost_times : exp -> int
     | HOLE _ -> 100 in
   cost e + get_depth e
 
-let cost_plus e = 0
-let cost : exp -> int
+let cost_plus : exp -> int
 =fun e ->
   let rec cost e = 
     match e with

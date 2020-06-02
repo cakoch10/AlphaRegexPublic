@@ -1,0 +1,54 @@
+============  INPUT  =============
+- Positive Examples:
+1011011011
+01101100110011
+01101011010
+10110110110
+011011011
+01110110
+01101
+- Negative Examples:
+00000100
+100
+011101000
+000011100
+00110100
+010000010
+01011001
+==========  PROCESSING  ==========
+1000. Worklist size :  794 1793 1793 took 0.078731sec total: 0.078732
+2000. Worklist size :  1565 3564 3564 took 0.086501sec total: 0.165235
+3000. Worklist size :  2355 5354 5354 took 0.088727sec total: 0.253965
+4000. Worklist size :  3159 7158 7158 took 0.078327sec total: 0.332296
+5000. Worklist size :  3895 8894 8894 took 0.0923sec total: 0.4246
+6000. Worklist size :  4577 10576 10576 took 0.100744sec total: 0.525346
+7000. Worklist size :  5367 12366 12366 took 0.09315sec total: 0.618499
+8000. Worklist size :  6163 14162 14162 took 0.100731sec total: 0.719232
+9000. Worklist size :  6901 15900 15900 took 0.102703sec total: 0.821937
+10000. Worklist size :  7643 17642 17642 took 0.100619sec total: 0.92256
+11000. Worklist size :  8437 19436 19436 took 0.10418sec total: 1.026743
+12000. Worklist size :  9247 21246 21246 took 0.115301sec total: 1.142047
+13000. Worklist size :  9951 22950 22950 took 0.093747sec total: 1.235798
+14000. Worklist size :  10758 24757 24757 took 0.088675sec total: 1.324476
+15000. Worklist size :  11483 26482 26482 took 0.111145sec total: 1.435625
+============  OUTPUT  ============
+(0*1)*0?10?
+Level: 5
+ - (0*1)*0?10?  1011011011 : accept
+ - (0*1)*0?10?  01101100110011 : accept
+ - (0*1)*0?10?  01101011010 : accept
+ - (0*1)*0?10?  10110110110 : accept
+ - (0*1)*0?10?  011011011 : accept
+ - (0*1)*0?10?  01110110 : accept
+ - (0*1)*0?10?  01101 : accept
+ - (0*1)*0?10?  00000100 : reject
+ - (0*1)*0?10?  100 : reject
+ - (0*1)*0?10?  011101000 : reject
+ - (0*1)*0?10?  000011100 : reject
+ - (0*1)*0?10?  00110100 : reject
+ - (0*1)*0?10?  010000010 : reject
+ - (0*1)*0?10?  01011001 : reject
+============  REPORT  =============
+Iter : 15029
+Time : 1.441179 seconds
+

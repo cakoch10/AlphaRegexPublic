@@ -1,0 +1,155 @@
+============  INPUT  =============
+- Positive Examples:
+1000101
+11011100
+10000101
+0101100
+10010101
+10010001
+110100
+0100001
+1000001
+0001101
+00101011
+01100001
+00001001
+000101
+01110111
+011001
+10000100
+1101
+00000
+111000
+1011001
+1001
+10101001
+11100111
+01101111
+01001011
+01100111
+00011001
+00000100
+00101
+00100
+- Negative Examples:
+111000010
+11101010
+011110010
+10110
+100100010
+01101010
+1001010
+101101010
+01010010
+101010110
+1
+010010
+110101110
+111010010
+011110
+011101010
+==========  PROCESSING  ==========
+1000. Worklist size :  725 1724 1724 took 0.200193sec total: 0.200194
+2000. Worklist size :  1522 3521 3521 took 0.225382sec total: 0.425579
+3000. Worklist size :  2245 5244 5244 took 0.22665sec total: 0.652231
+4000. Worklist size :  2952 6951 6951 took 0.222677sec total: 0.874911
+5000. Worklist size :  3582 8581 8581 took 0.233545sec total: 1.108461
+6000. Worklist size :  4260 10259 10259 took 0.266531sec total: 1.374995
+7000. Worklist size :  4987 11986 11986 took 0.26735sec total: 1.642348
+8000. Worklist size :  5767 13766 13766 took 0.26693sec total: 1.90928
+9000. Worklist size :  6589 15588 15588 took 0.312674sec total: 2.221958
+10000. Worklist size :  7239 17238 17238 took 0.227444sec total: 2.449403
+11000. Worklist size :  7918 18917 18917 took 0.23138sec total: 2.680786
+12000. Worklist size :  8588 20587 20587 took 0.2157sec total: 2.89649
+13000. Worklist size :  9274 22273 22273 took 0.2485sec total: 3.144994
+14000. Worklist size :  10037 24036 24036 took 0.268762sec total: 3.413759
+15000. Worklist size :  10752 25751 25751 took 0.249406sec total: 3.663169
+16000. Worklist size :  11459 27458 27458 took 0.270129sec total: 3.9333
+17000. Worklist size :  12168 29167 29167 took 0.247303sec total: 4.180606
+18000. Worklist size :  12881 30880 30880 took 0.266642sec total: 4.44725
+19000. Worklist size :  13443 32442 32442 took 0.284724sec total: 4.731977
+20000. Worklist size :  14098 34097 34097 took 0.283093sec total: 5.015072
+21000. Worklist size :  14702 35701 35701 took 0.320992sec total: 5.336068
+22000. Worklist size :  15377 37376 37376 took 0.289953sec total: 5.626024
+23000. Worklist size :  16052 39051 39051 took 0.277673sec total: 5.9037
+24000. Worklist size :  16705 40704 40704 took 0.272811sec total: 6.176514
+25000. Worklist size :  17323 42322 42322 took 0.271295sec total: 6.447814
+26000. Worklist size :  17983 43982 43982 took 0.286994sec total: 6.734811
+27000. Worklist size :  18632 45631 45631 took 0.279837sec total: 7.014652
+28000. Worklist size :  19341 47340 47340 took 0.290823sec total: 7.305478
+29000. Worklist size :  20063 49062 49062 took 0.273756sec total: 7.579237
+30000. Worklist size :  20782 50781 50781 took 0.269562sec total: 7.848802
+31000. Worklist size :  21543 52542 52542 took 0.326808sec total: 8.175613
+32000. Worklist size :  22254 54253 54253 took 0.332919sec total: 8.508536
+33000. Worklist size :  22967 55966 55966 took 0.339878sec total: 8.848417
+34000. Worklist size :  23783 57782 57782 took 0.372465sec total: 9.220886
+35000. Worklist size :  24551 59550 59550 took 0.310903sec total: 9.531793
+36000. Worklist size :  25392 61391 61391 took 0.356887sec total: 9.888685
+37000. Worklist size :  26171 63170 63170 took 0.350821sec total: 10.239509
+38000. Worklist size :  26933 64932 64932 took 0.32418sec total: 10.563691
+39000. Worklist size :  27639 66638 66638 took 0.335659sec total: 10.899354
+40000. Worklist size :  28411 68410 68410 took 0.341323sec total: 11.24068
+41000. Worklist size :  29300 70299 70299 took 0.361473sec total: 11.602156
+42000. Worklist size :  30152 72151 72151 took 0.323821sec total: 11.925981
+43000. Worklist size :  30801 73800 73800 took 0.287065sec total: 12.21305
+44000. Worklist size :  31454 75453 75453 took 0.317099sec total: 12.530151
+45000. Worklist size :  32169 77168 77168 took 0.283431sec total: 12.813586
+46000. Worklist size :  32820 78819 78819 took 0.278367sec total: 13.091956
+47000. Worklist size :  33500 80499 80499 took 0.269512sec total: 13.361473
+48000. Worklist size :  34235 82234 82234 took 0.328428sec total: 13.689904
+49000. Worklist size :  34963 83962 83962 took 0.309721sec total: 13.99963
+50000. Worklist size :  35696 85695 85695 took 0.309934sec total: 14.309567
+============  OUTPUT  ============
+(0+1)*0(0+11*)
+Level: 6
+ - (0+1)*0(0+11*)  1000101 : accept
+ - (0+1)*0(0+11*)  11011100 : accept
+ - (0+1)*0(0+11*)  10000101 : accept
+ - (0+1)*0(0+11*)  0101100 : accept
+ - (0+1)*0(0+11*)  10010101 : accept
+ - (0+1)*0(0+11*)  10010001 : accept
+ - (0+1)*0(0+11*)  110100 : accept
+ - (0+1)*0(0+11*)  0100001 : accept
+ - (0+1)*0(0+11*)  1000001 : accept
+ - (0+1)*0(0+11*)  0001101 : accept
+ - (0+1)*0(0+11*)  00101011 : accept
+ - (0+1)*0(0+11*)  01100001 : accept
+ - (0+1)*0(0+11*)  00001001 : accept
+ - (0+1)*0(0+11*)  000101 : accept
+ - (0+1)*0(0+11*)  01110111 : accept
+ - (0+1)*0(0+11*)  011001 : accept
+ - (0+1)*0(0+11*)  10000100 : accept
+ - (0+1)*0(0+11*)  1101 : accept
+ - (0+1)*0(0+11*)  00000 : accept
+ - (0+1)*0(0+11*)  111000 : accept
+ - (0+1)*0(0+11*)  1011001 : accept
+ - (0+1)*0(0+11*)  1001 : accept
+ - (0+1)*0(0+11*)  10101001 : accept
+ - (0+1)*0(0+11*)  11100111 : accept
+ - (0+1)*0(0+11*)  01101111 : accept
+ - (0+1)*0(0+11*)  01001011 : accept
+ - (0+1)*0(0+11*)  01100111 : accept
+ - (0+1)*0(0+11*)  00011001 : accept
+ - (0+1)*0(0+11*)  00000100 : accept
+ - (0+1)*0(0+11*)  00101 : accept
+ - (0+1)*0(0+11*)  00100 : accept
+ - (0+1)*0(0+11*)  111000010 : reject
+ - (0+1)*0(0+11*)  11101010 : reject
+ - (0+1)*0(0+11*)  011110010 : reject
+ - (0+1)*0(0+11*)  10110 : reject
+ - (0+1)*0(0+11*)  100100010 : reject
+ - (0+1)*0(0+11*)  01101010 : reject
+ - (0+1)*0(0+11*)  1001010 : reject
+ - (0+1)*0(0+11*)  101101010 : reject
+ - (0+1)*0(0+11*)  01010010 : reject
+ - (0+1)*0(0+11*)  101010110 : reject
+ - (0+1)*0(0+11*)  1 : reject
+ - (0+1)*0(0+11*)  010010 : reject
+ - (0+1)*0(0+11*)  110101110 : reject
+ - (0+1)*0(0+11*)  111010010 : reject
+ - (0+1)*0(0+11*)  011110 : reject
+ - (0+1)*0(0+11*)  011101010 : reject
+============  REPORT  =============
+Iter : 50453
+Time : 14.459438 seconds
+

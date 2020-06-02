@@ -1,0 +1,55 @@
+============  INPUT  =============
+- Positive Examples:
+0010000000
+00100100100110
+0010010010001
+001010
+0000100
+00010010100
+0010001100000
+- Negative Examples:
+10100001
+1100
+10010010
+1001100
+11111
+00001111
+000100101
+==========  PROCESSING  ==========
+1000. Worklist size :  797 1796 1796 took 0.084432sec total: 0.084433
+2000. Worklist size :  1627 3626 3626 took 0.089091sec total: 0.173526
+3000. Worklist size :  2403 5402 5402 took 0.100895sec total: 0.274424
+4000. Worklist size :  3150 7149 7149 took 0.097996sec total: 0.372424
+5000. Worklist size :  3922 8921 8921 took 0.104942sec total: 0.477369
+6000. Worklist size :  4768 10767 10767 took 0.111589sec total: 0.588962
+7000. Worklist size :  5634 12633 12633 took 0.113272sec total: 0.702238
+8000. Worklist size :  6468 14467 14467 took 0.095026sec total: 0.797269
+9000. Worklist size :  7240 16239 16239 took 0.098254sec total: 0.895527
+10000. Worklist size :  7978 17977 17977 took 0.113629sec total: 1.009162
+11000. Worklist size :  8685 19684 19684 took 0.138807sec total: 1.147972
+12000. Worklist size :  9452 21451 21451 took 0.127359sec total: 1.275334
+13000. Worklist size :  10294 23293 23293 took 0.107511sec total: 1.382849
+14000. Worklist size :  11062 25061 25061 took 0.129485sec total: 1.512339
+15000. Worklist size :  11820 26819 26819 took 0.160509sec total: 1.672851
+16000. Worklist size :  12602 28601 28601 took 0.14021sec total: 1.813064
+============  OUTPUT  ============
+(01*)*0(01)?
+Level: 5
+ - (01*)*0(01)?  0010000000 : accept
+ - (01*)*0(01)?  00100100100110 : accept
+ - (01*)*0(01)?  0010010010001 : accept
+ - (01*)*0(01)?  001010 : accept
+ - (01*)*0(01)?  0000100 : accept
+ - (01*)*0(01)?  00010010100 : accept
+ - (01*)*0(01)?  0010001100000 : accept
+ - (01*)*0(01)?  10100001 : reject
+ - (01*)*0(01)?  1100 : reject
+ - (01*)*0(01)?  10010010 : reject
+ - (01*)*0(01)?  1001100 : reject
+ - (01*)*0(01)?  11111 : reject
+ - (01*)*0(01)?  00001111 : reject
+ - (01*)*0(01)?  000100101 : reject
+============  REPORT  =============
+Iter : 16200
+Time : 1.836919 seconds
+
